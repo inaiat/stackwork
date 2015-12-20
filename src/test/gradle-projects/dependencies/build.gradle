@@ -9,6 +9,7 @@ buildscript {
     classpath group: 'org.stackwork.gradle', name: 'stackwork', version: '0.1-TEST'
   }
 }
+
 apply from: '../../gradle-plugins/stackwork-extended-for-tests.gradle'
 
 stackwork {
@@ -19,9 +20,7 @@ repositories {
   maven { url = "file://${project.buildDir}/tmpRepo" }
 }
 
-dependencies {
-  stackwork group: 'org.stackwork.gradle', name: 'fake', version: '0.1-FAKE', ext: 'txt'
-}
+
 
 tasks.collectImageDependencies.dependsOn task('preBuildFakePublishMavenArtifact', type: Copy) {
   from 'maven-artifact'
